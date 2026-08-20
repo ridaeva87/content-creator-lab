@@ -89,7 +89,8 @@
   --ring: oklch(0.73 0.083 82);
   --gold: oklch(0.73 0.083 82);
   --rose: oklch(0.775 0.055 20);
-  --gradient-hero: radial-gradient(
+  --gradient-hero:
+    radial-gradient(
       120% 90% at 50% 0%,
       color-mix(in oklab, var(--rose) 16%, transparent),
       transparent 60%
@@ -110,7 +111,6 @@
   --sidebar-border: oklch(0.73 0.083 82 / 28%);
   --sidebar-ring: oklch(0.73 0.083 82);
 }
-
 
 .dark {
   --background: oklch(0.129 0.042 264.695);
@@ -162,7 +162,10 @@
   body {
     font-family: var(--font-sans);
   }
-  h1, h2, h3, .font-display {
+  h1,
+  h2,
+  h3,
+  .font-display {
     font-family: var(--font-display);
   }
 }
@@ -181,9 +184,37 @@
   border: 1px solid color-mix(in oklab, var(--gold) 30%, transparent);
   background: color-mix(in oklab, var(--card) 85%, transparent);
   border-radius: var(--radius-xl);
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
   &:hover {
     border-color: color-mix(in oklab, var(--gold) 65%, transparent);
     transform: translateY(-3px);
+  }
+}
+
+@layer components {
+  .legal-content {
+    color: var(--muted-foreground);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .legal-content h2 {
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--foreground);
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .legal-content p + p {
+    margin-top: 0.75rem;
+  }
+  .legal-content ul {
+    margin: 0.75rem 0;
+    padding-left: 1.4rem;
+    list-style: disc;
+  }
+  .legal-content li + li {
+    margin-top: 0.45rem;
   }
 }
