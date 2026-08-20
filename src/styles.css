@@ -157,3 +157,33 @@
     color: var(--color-foreground);
   }
 }
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@utility gold-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--gold) 70%, transparent),
+    transparent
+  );
+  height: 1px;
+}
+
+@utility card-lux {
+  border: 1px solid color-mix(in oklab, var(--gold) 30%, transparent);
+  background: color-mix(in oklab, var(--card) 85%, transparent);
+  border-radius: var(--radius-xl);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  &:hover {
+    border-color: color-mix(in oklab, var(--gold) 65%, transparent);
+    transform: translateY(-3px);
+  }
+}
